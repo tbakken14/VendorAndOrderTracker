@@ -4,6 +4,7 @@ namespace VendorAndOrderTracker.Models
 {
     public class Vendor
     {
+        public static Dictionary<string, Vendor> Vendors { get; } = new Dictionary<string, Vendor>();
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Order> Orders { get; set; }
