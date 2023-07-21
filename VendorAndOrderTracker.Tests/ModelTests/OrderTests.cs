@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VendorAndOrderTracker.Models;
+using System;
 
 namespace VendorAndOrderTracker.Tests
 {
@@ -8,27 +9,35 @@ namespace VendorAndOrderTracker.Tests
     {
         Order _order = new Order();
         [TestMethod]
-        public void Order_Title_Set_And_Get_Test()
+        [DataRow("Title of Order")]
+        public void Order_Title_Set_And_Get_Test(string title)
         {
-            Assert.IsTrue(false);
+            _order.Title = title;
+            Assert.AreEqual(_order.Title, title);
         }
 
         [TestMethod]
-        public void Order_Description_Set_And_Get_Test()
+        [DataRow("Description of Order")]
+        public void Order_Description_Set_And_Get_Test(string description)
         {
-            Assert.IsTrue(false);
+            _order.Description = description;
+            Assert.AreEqual(_order.Description, description);
         }
 
         [TestMethod]
-        public void Order_Price_Set_And_Get_Test()
+        [DataRow(1.1)]
+        public void Order_Price_Set_And_Get_Test(double price)
         {
-            Assert.IsTrue(false);
+            _order.Price = price;
+            Assert.AreEqual(_order.price, price);
         }
 
         [TestMethod]
         public void Order_Date_Set_And_Get_Test()
         {
-            Assert.IsTrue(false);
+            DateTime date = new DateTime().Date;
+            _order.Date = date;
+            Assert.AreEqual(_order.Date, date);
         }
     }
 }
