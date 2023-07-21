@@ -7,7 +7,9 @@ namespace VendorAndOrderTracker.Tests
     public class VendorTests
     {
         Vendor _vendor = new Vendor("", "");
+
         [TestMethod]
+        [DataRow("Name of vendor")]
         public void Vendor_Name_Set_And_Get_Test(string name)
         {
             _vendor.Name = name;
@@ -15,6 +17,7 @@ namespace VendorAndOrderTracker.Tests
         }
 
         [TestMethod]
+        [DataRow("Description of vendor")]
         public void Vendor_Description_Set_And_Get_Test(string description)
         {
             _vendor.Description = description;
@@ -22,11 +25,18 @@ namespace VendorAndOrderTracker.Tests
         }
 
         [TestMethod]
-        public void Vendor_Orders_Set_And_Get_Test(Order order, int count)
+        [DataRow(1)]
+        [DataRow(2)]
+        [DataRow(3)]
+        public void Vendor_Orders_Add_Order_Test(int count)
         {
-            _vendor.Orders.Add(order);
+            count = (count < 0) ? 0 : count;
+            for (int i = 0; i < count; i++)
+            {
+                Order order = new Order();
+                _vendor.Orders.Add(order);
+            }
             Assert.AreEqual(_vendor.Orders.Count, count);
-            Assert.AreEqual(_vendor.Orders[_vendor.Orders.Count - 1], order);
         }
     }
 }
