@@ -29,13 +29,13 @@ namespace VendorAndOrderTracker.Tests
         public void Order_Price_Set_And_Get_Test(double price)
         {
             _order.Price = price;
-            Assert.AreEqual(_order.price, price);
+            Assert.AreEqual(_order.Price, price);
         }
 
         [TestMethod]
         public void Order_Date_Set_And_Get_Test()
         {
-            DateTime date = new DateTime().Date;
+            DateTime date = DateTime.UtcNow;
             _order.Date = date;
             Assert.AreEqual(_order.Date, date);
         }
