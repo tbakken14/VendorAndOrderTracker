@@ -6,7 +6,7 @@ namespace VendorAndOrderTracker.Tests
     [TestClass]
     public class VendorTests
     {
-        Vendor _vendor = new Vendor();
+        Vendor _vendor = new Vendor("", "");
         [TestMethod]
         public void Vendor_Name_Set_And_Get_Test(string name)
         {
@@ -26,7 +26,7 @@ namespace VendorAndOrderTracker.Tests
         {
             _vendor.Orders.Add(order);
             Assert.AreEqual(_vendor.Orders.Count, count);
-            Assert.AreEqual(_vendor.Orders[_vender.Orders.Count - 1], order);
+            Assert.AreEqual(_vendor.Orders[_vendor.Orders.Count - 1], order);
         }
     }
 }
