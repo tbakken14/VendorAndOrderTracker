@@ -8,21 +8,25 @@ namespace VendorAndOrderTracker.Tests
     {
         Vendor _vendor = new Vendor();
         [TestMethod]
-        public void Vendor_Name_Set_And_Get_Test()
+        public void Vendor_Name_Set_And_Get_Test(string name)
         {
-            Assert.IsTrue(false);
+            _vendor.Name = name;
+            Assert.AreEqual(_vendor.Name, name);
         }
 
         [TestMethod]
-        public void Vendor_Description_Set_And_Get_Test()
+        public void Vendor_Description_Set_And_Get_Test(string description)
         {
-            Assert.IsTrue(false);
+            _vendor.Description = description;
+            Assert.AreEqual(_vendor.Description, description);
         }
 
         [TestMethod]
-        public void Vendor_Orders_Set_And_Get_Test()
+        public void Vendor_Orders_Set_And_Get_Test(Order order, int count)
         {
-            Assert.IsTrue(false);
+            _vendor.Orders.Add(order);
+            Assert.AreEqual(_vendor.Orders.Count, count);
+            Assert.AreEqual(_vendor.Orders[_vender.Orders.Count - 1], order);
         }
     }
 }
