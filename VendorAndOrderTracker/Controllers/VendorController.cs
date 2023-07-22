@@ -26,10 +26,9 @@ namespace VendorAndOrderTracker.Controllers
         }
 
         [HttpGet("/Vendor/{id}")]
-        public ActionResult Show(string id)
+        public ActionResult Show(int id)
         {
-
-            Vendor vendor = Vendor.Vendors[Int32.Parse(id)];
+            Vendor vendor = Vendor.Vendors[id];
             return View(vendor);
         }
     }
