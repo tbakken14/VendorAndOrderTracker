@@ -14,6 +14,7 @@ namespace VendorAndOrderTracker.Models
             Name = name;
             Description = description;
             Orders = new List<Order>();
+            Vendors.Add(this);
         }
     }
 }

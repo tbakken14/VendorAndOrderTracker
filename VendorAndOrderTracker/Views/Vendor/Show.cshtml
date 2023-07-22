@@ -9,12 +9,14 @@
 </head>
 
 <body>
-    <h1>Bakery Vendors</h1>
-    @for (int id = 0; id < @Model.Count; id++)
+    <h1>Bakery Vendor</h1>
+    <h2>@Model.Name</h2>
+    <h3>@Model.Description</h3>
+    @for (int orderId = 0; orderId < @Model.Orders.Count; orderId++)
     {
-        <a href="Vendor/@id">@Model[id].Name</a>
+        <a href="/Vendor/{id}/Order/@orderId">@Model.Orders[orderId].Title</a>
     }
-    <form action="/NewVendor" method="get">
-        <button type="submit">Add a New Vendor</button>
+    <form action="/Vendor/{id}/Order" method="get">
+        <button type="submit">Add a New Order</button>
     </form>
 </body>

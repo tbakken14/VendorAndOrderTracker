@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using VendorAndOrderTracker.Models;
+using System;
 
 namespace VendorAndOrderTracker.Controllers
 {
@@ -20,15 +21,15 @@ namespace VendorAndOrderTracker.Controllers
         [HttpPost("/NewVendor")]
         public ActionResult New(string name, string description)
         {
-            Vendor vendor = new Vendor(name, description);
-            Vendor.Vendors.Add(vendor);
+            new Vendor(name, description);
             return RedirectToAction("Index", "Home");
         }
 
         [HttpGet("/Vendor/{id}")]
-        public ActionResult Show(int id)
+        public ActionResult Show(string id)
         {
-            Vendor vendor = Vendor.Vendors[id];
+
+            Vendor vendor = Vendor.Vendors[Int32.Parse(id)];
             return View(vendor);
         }
     }
