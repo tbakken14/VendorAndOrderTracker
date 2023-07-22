@@ -11,13 +11,13 @@ namespace VendorAndOrderTracker.Controllers
             return View();
         }
 
-        [HttpGet("/Vendor/New")]
+        [HttpGet("/NewVendor")]
         public ActionResult New()
         {
             return View();
         }
 
-        [HttpPost("/Vendor/New")]
+        [HttpPost("/NewVendor")]
         public ActionResult New(string name, string description)
         {
             Vendor vendor = new Vendor(name, description);
