@@ -6,9 +6,9 @@ namespace VendorAndOrderTracker.Controllers
     public class VendorController : Controller
     {
         [HttpGet("/Vendor")]
-        public ActionResult Overview()
+        public ActionResult Vendors()
         {
-            return View();
+            return View(Vendor.Vendors);
         }
 
         [HttpGet("/NewVendor")]
