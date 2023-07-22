@@ -29,7 +29,7 @@ namespace VendorAndOrderTracker.Controllers
         public ActionResult Show(int id)
         {
             Vendor vendor = Vendor.Vendors[id];
-            return View(vendor);
+            return View(new { vendor = vendor, id = id });
         }
     }
 }

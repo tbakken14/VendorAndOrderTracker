@@ -6,9 +6,10 @@ namespace VendorAndOrderTracker.Controllers
     public class OrderController : Controller
     {
         [HttpGet("/Vendor/{vid}/NewOrder")]
-        public ActionResult New()
+        public ActionResult New(int vid)
         {
-            return View();
+            Vendor vendor = Vendor.Vendors[vid];
+            return View(new { vendor = vendor, id = vid });
         }
 
         [HttpPost("/Vendor/{vid}/NewOrder")]
@@ -17,7 +18,7 @@ namespace VendorAndOrderTracker.Controllers
             Vendor vendor = Vendor.Vendors[vid];
             Order order = new Order(title, description, price);
             vendor.Orders.Add(order);
-            return RedirectToAction("Show", new { id = vid });
+            return RedirectToAction("Show", "Vendor", new { id = vid });
         }
 
         [HttpGet("/Vendor/{vid}/Order/{oid}")]
