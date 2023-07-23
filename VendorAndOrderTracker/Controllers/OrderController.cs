@@ -24,8 +24,9 @@ namespace VendorAndOrderTracker.Controllers
         [HttpGet("/Vendor/{vid}/Order/{oid}")]
         public ActionResult Show(int vid, int oid)
         {
+            Vendor vendor = Vendor.Vendors[vid];
             Order order = Vendor.Vendors[vid].Orders[oid];
-            return View(order);
+            return View(new { vendor = vendor, order = order });
         }
     }
 }
